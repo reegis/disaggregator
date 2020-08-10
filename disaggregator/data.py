@@ -982,8 +982,8 @@ def living_space(aggregate=True, **kwargs):
         df = df.loc[lambda x: x.building_type == bt]
     if vc is not None and (1 <= vc <= 11 or vc >= 2000):
         df = df.loc[lambda x: x.vintage_class == vc]
-    if hs is not None and (0 <= hs):
-        df = df.loc[lambda x: x.heating_system == hs]
+#    if hs is not None and (0 <= hs):
+#        df = df.loc[lambda x: x.heating_system == hs]
     if ne is not None and (0 <= ne <= 1):
         df = df.loc[lambda x: x.non_empty_building == ne]
     # Replace internal_ids by human readables of
@@ -2031,10 +2031,10 @@ def plausibility_check_nuts3(df, check_zero=True):
     # 3. Check if values below zero
     if isinstance(df, pd.Series):
         if check_zero and df.loc[lambda x: x <= 0.0].any():
-            logger.warn('There are values less or equal to zero.')
+            logger.warning('There are values less or equal to zero.')
     elif isinstance(df, pd.DataFrame):
         if check_zero and df[df <= 0.0].any().any():
-            logger.warn('There are values less or equal to zero.')
+            logger.warning('There are values less or equal to zero.')
     else:
         raise NotImplementedError('Check for given type! Other than pd.Series '
                                   'or pd.DataFrame are not yet possible.')
