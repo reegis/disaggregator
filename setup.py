@@ -19,7 +19,7 @@ setup(
     packages=find_packages(),
     package_dir={'disaggregator': 'disaggregator'},
     data_files = {
-        ('disaggregator', ['config.yaml'])
+        ('disaggregator', 'config.yaml')
     },
  #   extras_require={
  #         'dev': ['nose', 'sphinx', 'sphinx_rtd_theme', 'requests']},
