@@ -18,6 +18,9 @@ setup(
     long_description=read('README.md'),
     packages=find_packages(),
     package_dir={'disaggregator': 'disaggregator'},
+    data_files = {
+        ('disaggregator', ['config.yaml'])
+    },
  #   extras_require={
  #         'dev': ['nose', 'sphinx', 'sphinx_rtd_theme', 'requests']},
     install_requires=[
